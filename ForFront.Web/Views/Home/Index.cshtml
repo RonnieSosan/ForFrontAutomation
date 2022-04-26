@@ -1,0 +1,50 @@
+﻿@model SpiderDeploymentModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>DeploySpider</h1>
+
+<h4>Spider</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DeploySpider">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="XAxis" class="control-label"></label>
+                <input asp-for="XAxis" class="form-control" />
+                <span asp-validation-for="XAxis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YAxis" class="control-label"></label>
+                <input asp-for="YAxis" class="form-control" />
+                <span asp-validation-for="YAxis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxXAxis" class="control-label"></label>
+                <input asp-for="MaxXAxis" class="form-control" />
+                <span asp-validation-for="MaxXAxis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxYAxis" class="control-label"></label>
+                <input asp-for="MaxYAxis" class="form-control" />
+                <span asp-validation-for="MaxYAxis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentDirection" class="control-label"></label>
+                <input asp-for="CurrentDirection" class="form-control" />
+                <span asp-validation-for="CurrentDirection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Command" class="control-label"></label>
+                <input asp-for="Command" class="form-control" />
+                <span asp-validation-for="Command" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="DeploySpider" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
