@@ -133,7 +133,7 @@ namespace ForFrontAutomation.Core
             return this;
         }
 
-        public bool IsValidStartingPosition(int XAxis, int YAxis, int MaxXAxis, int MaxYAxis)
+        public bool IsValidStartingPosition()
         {
             if (XAxis > MaxXAxis || YAxis > MaxYAxis)
                 return false;

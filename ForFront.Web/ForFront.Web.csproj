@@ -15,8 +15,4 @@
     <ProjectReference Include="..\ForFrontAutomation.Core\ForFrontAutomation.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Spider\" />
-  </ItemGroup>
-
 </Project>
