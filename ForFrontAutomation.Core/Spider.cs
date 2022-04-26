@@ -133,7 +133,11 @@ namespace ForFrontAutomation.Core
             return this;
         }
 
-        public bool IsValidStartingPosition()
+        /// <summary>
+        /// This checks if the coordinates provided for the spider is within the range of the wall
+        /// </summary>
+        /// <returns>Returns a true or false value</returns>
+        public bool IsValidCoordinates()
         {
             if (XAxis > MaxXAxis || YAxis > MaxYAxis)
                 return false;

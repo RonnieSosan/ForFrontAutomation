@@ -37,8 +37,10 @@ namespace ForFront.Web.Controllers
 
         public IActionResult DeploySpider(SpiderDeploymentModel model)
         {
+            //code to clear the validation state
             ModelState.ClearValidationState(nameof(SpiderDeploymentModel));
 
+            //check if the model state is valid and orompt the user if it is
             if (!ModelState.IsValid)
             {
                 return View("Index", model);
@@ -48,9 +50,10 @@ namespace ForFront.Web.Controllers
             Spider spiderManRodent = new Spider(model.XAxis, model.YAxis, model.MaxXAxis, model.MaxYAxis, model.CurrentDirection);
 
             //call the spider to pprocess a new command
-            bool isAValidCommand = spiderManRodent.IsValidStartingPosition();
+            bool isAValidCoordinates = spiderManRodent.IsValidCoordinates();
 
-            if (!isAValidCommand) {
+            //check if thecoordinates provided is valid
+            if (!isAValidCoordinates) {
                 ModelState.AddModelError("XAxis", "The coordintes for the spider exceed the wall");
                 ModelState.AddModelError("YAxis", "The coordintes for the spider exceed the wall");
                 return View("Index", model );
@@ -60,16 +63,12 @@ namespace ForFront.Web.Controllers
                 spiderManRodent.ProcessCommand(model.Command);
             }
 
+            //set the latest values for the current spider coordinates and direction
             model.XAxis = spiderManRodent.XAxis;
             model.YAxis = spiderManRodent.YAxis;
             model.CurrentDirection = spiderManRodent.CurrentDirection;
-            return View("View", model);
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View("View", model);
         }
     }
 }

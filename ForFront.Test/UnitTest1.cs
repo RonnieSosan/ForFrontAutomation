@@ -43,7 +43,7 @@ namespace ForFront.Test
             //creat a spider instance
             Spider spiderManRodent = new Spider(currentxAxis, currentYAxis, MaxXAxis, MaxYAxis, CurrentDirection);
             //check to see if the spider coordiantes are valid
-            bool isAValidCommand = spiderManRodent.IsValidStartingPosition();
+            bool isAValidCommand = spiderManRodent.IsValidCoordinates();
 
             Assert.AreEqual(expectedOutcome, isAValidCommand);
 
